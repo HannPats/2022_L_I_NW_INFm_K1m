@@ -1,16 +1,16 @@
 version 2.1
 jobs:
-build-and-test:
-machine:
-image:ubuntu-2004:202104-01
-steps:
--checkout
--run:source .venv/Scripts/activate
--run:make deps
--run:make lint
--run:make test
--run:make docker-build
+ build-and-test:
+  machine:
+   image:ubuntu-2004:202104-01
+  steps:
+  - checkout
+  - run:source .venv/Scripts/activate
+  - run:make deps
+  - run:make lint
+  - run:make test
+  - run:make docker-build
 workflows:
-basic:
-jobs:
--build-and-test
+ basic:
+  jobs:
+   -build-and-test
